@@ -1,0 +1,71 @@
+managed implementation in class zbp_i_230_dmo_travel_m unique;
+strict ( 2 );
+
+define behavior for zi_230_dmo_travel_m alias travel
+implementation in class zbp_i_230_dmo_travel_m unique
+persistent table /dmo/travel_m
+with additional save
+lock master
+early numbering
+authorization master ( global )
+etag master last_changed_at
+{
+  field ( readonly ) travel_id;
+  mapping for /dmo/travel_m corresponding;
+  create;
+  update;
+  delete;
+  factory action copy_travel [1];
+  action ( features: instance ) accept_travel result [1] $self;
+
+  validation validate_customer on save { create; field customer_id; }
+  validation validate_agency   on save { create; field agency_id; }
+  validation validate_dates    on save { create; field begin_date, end_date; }
+  validation validate_status   on save { create; field overall_status; }
+
+  internal action recalc_total_price;
+  determination calculate_total_price on modify {create; field booking_fee, currency_code; }
+
+  association _booking { create; }
+}
+
+define behavior for zi_230_dmo_booking_m alias booking
+implementation in class zbp_i_230_dmo_booking_m unique
+persistent table /dmo/booking_m
+lock dependent by _travel
+early numbering
+authorization dependent by _travel
+etag master last_changed_at
+{
+  field ( readonly ) travel_id, booking_id;
+  mapping for /dmo/booking_m corresponding;
+  update;
+  delete;
+
+  validation validate_status on save { create; field booking_status; }
+
+  determination calculate_total_price on modify { create;  field flight_price, currency_code; }
+
+  association _travel;
+  association _booking_supplement { create; }
+}
+
+define behavior for zi_230_dmo_booking_suppl_m alias booking_supplement
+implementation in class zbp_i_230_dmo_booking_suppl_m unique
+//persistent table /dmo/booksuppl_m
+with unmanaged save
+lock dependent by _travel
+early numbering
+authorization dependent by _travel
+etag master last_changed_at
+{
+  field ( readonly ) travel_id, booking_id, booking_supplement_id;
+  mapping for /dmo/booksuppl_m corresponding;
+  update;
+  delete;
+
+  determination calculate_total_price on modify {create;  field price, currency_code; }
+
+  association _booking;
+  association _travel;
+}

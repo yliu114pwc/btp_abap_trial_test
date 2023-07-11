@@ -1,0 +1,79 @@
+@Metadata.layer: #CORE
+
+@UI: {
+  headerInfo: { typeName: 'Travel', typeNamePlural: 'Travels', title: { type: #STANDARD, value: 'travel_id' } } }
+
+annotate entity zc_230_dmo_travel_processor_m with
+{
+
+  @UI.facet: [ { id:              'Travel',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Travel',
+                 position:        10 },
+               { id:              'Booking',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Booking',
+                 position:        20,
+                 targetElement:   '_booking'}]
+
+
+  @UI: {
+      lineItem:       [ { position: 10, importance: #HIGH } ,
+                      { type: #FOR_ACTION, dataAction: 'copyTravel', label: 'Copy Travel' } ],
+      identification: [ { position: 10, label: 'Travel ID' } ] }
+  travel_id;
+
+  @UI: {
+      lineItem:       [ { position: 20, importance: #HIGH } ],
+      identification: [ { position: 20 } ],
+      selectionField: [ { position: 20 } ] }
+  agency_id;
+
+  @UI: {
+      lineItem:       [ { position: 30, importance: #HIGH } ],
+      identification: [ { position: 30 } ],
+      selectionField: [ { position: 30 } ] }
+  customer_id;
+
+  @UI: {
+      lineItem:       [ { position: 40, importance: #MEDIUM } ],
+      identification: [ { position: 40 } ] }
+  begin_date;
+
+  @UI: {
+      lineItem:       [ { position: 41, importance: #MEDIUM } ],
+      identification: [ { position: 41 } ] }
+  end_date;
+
+
+  @UI: {
+      identification: [ { position: 42 } ] }
+  booking_fee;
+
+  @UI: {
+      lineItem:       [ { position: 43, importance: #MEDIUM } ],
+      identification: [ { position: 43, label: 'Total Price' } ] }
+  total_price;
+
+
+  @UI: {
+      lineItem:       [ { position: 50, importance: #HIGH } ],
+      identification: [ { position: 45, label: 'Status' } ],
+      selectionField: [{ position: 40 }],
+      textArrangement: #TEXT_ONLY
+       }
+  overall_status;
+
+  @UI.hidden: true
+  overall_status_text;
+
+  @UI: {
+      identification:[ { position: 46 } ]  }
+  description;
+
+  @UI.hidden: true
+  last_changed_at;
+
+}

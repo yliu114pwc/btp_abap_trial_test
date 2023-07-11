@@ -1,0 +1,37 @@
+projection;
+strict ( 2 );
+
+define behavior for zc_230_dmo_travel_processor_m alias travel
+use etag
+
+{
+  field ( readonly ) total_price;
+
+  use create;
+  use update;
+  use delete;
+
+  use action copy_travel;
+
+  use association _booking { create; }
+
+}
+
+define behavior for zc_230_dmo_booking_processor_m alias booking
+use etag
+{
+  use update;
+
+  use association _booking_supplement { create; }
+  use association _travel { }
+}
+
+
+define behavior for zc_230_dmo_suppl_processor_m alias booking_supplement
+use etag
+{
+  use update;
+
+  use association _travel { }
+  use association _booking { }
+}

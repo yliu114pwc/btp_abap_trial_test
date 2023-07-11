@@ -1,0 +1,59 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Booking',
+                typeNamePlural: 'Bookings',
+                title: { type: #STANDARD, value: 'booking_id' } } }
+annotate entity zc_230_dmo_booking_processor_m with
+{
+  @UI.facet: [ { id:            'Booking',
+                 purpose:       #STANDARD,
+                 type:          #IDENTIFICATION_REFERENCE,
+                 label:         'Booking',
+                 position:      10 },
+               { id:            'BookingSupplement',
+                 purpose:       #STANDARD,
+                 type:          #LINEITEM_REFERENCE,
+                 label:         'Booking Supplement',
+                 position:      20,
+                 targetElement: '_booking_supplement'} ]
+  travel_id;
+
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH } ],
+         identification: [ { position: 20 } ] }
+  booking_id;
+
+  @UI: { lineItem:       [ { position: 30, importance: #HIGH } ],
+         identification: [ { position: 30 } ] }
+  booking_date;
+
+  @UI: { lineItem:       [ { position: 40, importance: #HIGH } ],
+         identification: [ { position: 40 } ] }
+  customer_id;
+
+  @UI: { lineItem:       [ { position: 50, importance: #HIGH } ],
+         identification: [ { position: 50 } ] }
+  carrier_id;
+
+  @UI: { lineItem:       [ { position: 60, importance: #HIGH } ],
+         identification: [ { position: 60 } ] }
+  connection_id;
+
+  @UI: { lineItem:       [ { position: 70, importance: #HIGH } ],
+         identification: [ { position: 70 } ] }
+  flight_date;
+
+  @UI: { lineItem:       [ { position: 80, importance: #HIGH } ],
+         identification: [ { position: 80 } ] }
+  flight_price;
+
+  @UI: { lineItem:       [ { position: 90, importance: #HIGH, label: 'Status' } ],
+         identification: [ { position: 90, label: 'Status' } ],
+         textArrangement: #TEXT_ONLY }
+  booking_status;
+
+  @UI.hidden: true
+  booking_status_text;
+
+  @UI.hidden: true
+  last_changed_at;
+}

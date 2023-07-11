@@ -1,0 +1,7 @@
+@EndUserText.label: 'flight'
+define service Z230_dmo_flight_r {
+  expose zi_230_dmo_connection_r as connection;
+  expose zi_230_dmo_flight_r as flight;
+  expose zi_230_dmo_carrier as airline;
+  expose zi_230_dmo_airport as airport;
+}

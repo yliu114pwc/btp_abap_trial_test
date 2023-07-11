@@ -1,0 +1,4 @@
+@EndUserText.label: 'connection'
+define service Z230_dmo_connection_r {
+  expose zi_230_dmo_connection_r as connection;
+}
