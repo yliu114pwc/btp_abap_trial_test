@@ -1,0 +1,16 @@
+@EndUserText.label: 'travel processor'
+define service zui_230_dmo_travel_processor_m {
+  expose zc_230_dmo_travel_processor_m as Travel;
+  expose zc_230_dmo_booking_processor_m as Booking;
+  expose zc_230_dmo_suppl_processor_m as BookingSupplement;
+  expose /DMO/I_Customer as Passenger;
+  expose /DMO/I_Agency as TravelAgency;
+  expose /DMO/I_Carrier as Airline;
+  expose /DMO/I_Connection as FlightConnection;
+  expose /DMO/I_Flight as Flight;
+  expose /DMO/I_Airport as Airport;
+  expose I_Currency as Currency;
+  expose I_Country as Country;
+  expose /DMO/I_Overall_Status_VH as OverallStatusVH;
+  expose /DMO/I_Booking_Status_VH as BookingStatusVH;
+}

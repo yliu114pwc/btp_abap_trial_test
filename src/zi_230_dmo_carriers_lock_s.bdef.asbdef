@@ -1,0 +1,43 @@
+managed implementation in class zbp_i_230_dmo_carriers_lock_s unique;
+strict ( 2 );
+with draft;
+
+define behavior for zi_230_dmo_carriers_lock_s alias carriers_lock_singleton
+with unmanaged save
+draft table zd230_carr_lock
+lock master
+total etag last_changed_at
+authorization master ( global )
+{
+  field ( readonly ) carrier_singleton_id;
+  association _airline { create; with draft; }
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+    validation carrier~validate_name;
+    validation carrier~validate_currency_code;
+  }
+}
+
+define behavior for zi_230_dmo_carrier_s alias carrier
+persistent table /dmo/carrier
+draft table zd230_carr
+lock dependent by _carrier_singleton
+authorization dependent by _carrier_singleton
+etag master local_last_changed_at
+{
+  update;
+  delete ( features : instance );
+  field ( readonly ) carrier_singleton_id;
+  field ( mandatory : create, readonly : update ) carrier_id;
+  field ( mandatory ) name, currency_code;
+  association _carrier_singleton { with draft; }
+
+  validation validate_name on save { create; field name; }
+  validation validate_currency_code on save { create; field currency_code; }
+  mapping for /dmo/carrier corresponding;
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'travel'
+define service zui_230_dmo_travel_uq {
+  expose zi_230_dmo_travel_uq as Travel;
+}

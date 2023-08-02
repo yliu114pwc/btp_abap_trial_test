@@ -1,0 +1,25 @@
+projection;
+strict ( 2 );
+use draft;
+
+define behavior for zc_230_dmo_carriers_lock_s alias carriers_lock_singleton
+{
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+  use association _airline { create; with draft; }
+  field ( suppress ) last_changed_at;
+}
+
+define behavior for zc_230_dmo_carrier_s alias carrier
+use etag
+{
+  use update;
+  use delete;
+
+  use association _carrier_singleton { with draft; }
+}

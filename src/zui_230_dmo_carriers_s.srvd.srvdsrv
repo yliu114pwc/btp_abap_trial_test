@@ -1,0 +1,5 @@
+@EndUserText.label: 'carrier multi-inline-edit'
+define service zui_230_dmo_carriers_s {
+  expose zc_230_dmo_carriers_lock_s as CarriersLockSingleton;
+  expose zc_230_dmo_carrier_s as Carrier;
+}

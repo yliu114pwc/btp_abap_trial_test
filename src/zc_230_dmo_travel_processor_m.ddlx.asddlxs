@@ -21,7 +21,7 @@ annotate entity zc_230_dmo_travel_processor_m with
 
   @UI: {
       lineItem:       [ { position: 10, importance: #HIGH } ,
-                      { type: #FOR_ACTION, dataAction: 'copyTravel', label: 'Copy Travel' } ],
+                      { type: #FOR_ACTION, dataAction: 'copy_travel', label: 'Copy Travel' } ],
       identification: [ { position: 10, label: 'Travel ID' } ] }
   travel_id;
 

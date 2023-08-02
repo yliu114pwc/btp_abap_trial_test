@@ -1,5 +1,6 @@
 @EndUserText.label: 'travel processor'
 @AccessControl.authorizationCheck: #NOT_REQUIRED
+@Search.searchable: true
 @Metadata.allowExtensions: true
 define root view entity zc_230_dmo_travel_processor_m
   provider contract transactional_query

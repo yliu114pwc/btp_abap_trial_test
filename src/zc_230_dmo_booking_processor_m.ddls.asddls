@@ -1,5 +1,6 @@
 @EndUserText.label: 'booking processor'
 @AccessControl.authorizationCheck: #NOT_REQUIRED
+@Search.searchable: true
 @Metadata.allowExtensions: true
 define view entity zc_230_dmo_booking_processor_m
   as projection on zi_230_dmo_booking_m
