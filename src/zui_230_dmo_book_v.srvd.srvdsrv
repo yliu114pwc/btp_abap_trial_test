@@ -1,0 +1,4 @@
+@EndUserText.label: 'booking'
+define service zui_230_dmo_book_v {
+  expose zi_230_dmo_book_v as Booking;
+}

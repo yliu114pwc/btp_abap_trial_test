@@ -1,0 +1,16 @@
+@Metadata.layer: #CORE
+annotate entity zi_230_dmo_book_v with
+{
+  @UI.selectionField: [{ position: 10 }]
+  customer_id;
+  @UI.selectionField: [{ position: 20 }]
+  carrier_id;
+  @UI.selectionField: [{ position: 30 }]
+  connection_id;
+  @UI.selectionField: [{ position: 40 }]
+  flight_date;
+  @UI.selectionField: [{ position: 50 }]
+  currency_code;
+  @UI.selectionField: [{ position: 60 }]
+  booking_status;
+}

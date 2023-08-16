@@ -13,12 +13,12 @@ define view entity zc_230_dmo_suppl_processor_m
 
   key booking_supplement_id,
 
-      @Consumption.valueHelpDefinition: [
-          {  entity: {name: '/DMO/I_Supplement_StdVH', element: 'SupplementID' },
-             additionalBinding: [ { localElement: 'price',        element: 'Price',        usage: #RESULT },
-                                  { localElement: 'currency_code', element: 'CurrencyCode', usage: #RESULT }],
-             useForValidation: true }
-        ]
+//      @Consumption.valueHelpDefinition: [
+//          {  entity: {name: '/DMO/I_Supplement_StdVH', element: 'SupplementID' },
+//             additionalBinding: [ { localElement: 'price',        element: 'Price',        usage: #RESULT },
+//                                  { localElement: 'currency_code', element: 'CurrencyCode', usage: #RESULT }],
+//             useForValidation: true }
+//        ]
       @ObjectModel.text.element: ['supplement_description']
       supplement_id,
       _supplement_text.Description as supplement_description : localized,
@@ -31,7 +31,7 @@ define view entity zc_230_dmo_suppl_processor_m
       last_changed_at,
       /* Associations */
       _booking : redirected to parent zc_230_dmo_booking_processor_m,
-      _product,
+//      _product,
       _supplement_text,
       _travel  : redirected to zc_230_dmo_travel_processor_m
 }

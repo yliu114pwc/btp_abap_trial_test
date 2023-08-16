@@ -5,7 +5,7 @@ define view entity zi_230_dmo_booking_suppl_m
   association        to parent zi_230_dmo_booking_m as _booking         on  $projection.travel_id  = _booking.travel_id
                                                                         and $projection.booking_id = _booking.booking_id
   association [1..1] to zi_230_dmo_travel_m         as _travel          on  $projection.travel_id = _travel.travel_id
-  association [1..1] to /DMO/I_Supplement           as _product         on  $projection.supplement_id = _product.SupplementID
+//  association [1..1] to /DMO/I_Supplement           as _product         on  $projection.supplement_id = _product.SupplementID
   association [1..*] to /DMO/I_SupplementText       as _supplement_text on  $projection.supplement_id = _supplement_text.SupplementID
 {
   key travel_id,
@@ -18,6 +18,6 @@ define view entity zi_230_dmo_booking_suppl_m
 
       _booking,
       _travel,
-      _product,
+//      _product,
       _supplement_text
 }
