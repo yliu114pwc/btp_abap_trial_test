@@ -1,0 +1,20 @@
+CLASS zcl_230_dmo_bp DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+
+    INTERFACES :
+      if_rap_query_provider .
+
+ENDCLASS.
+
+
+
+CLASS ZCL_230_DMO_BP IMPLEMENTATION.
+
+
+  METHOD if_rap_query_provider~select.
+  ENDMETHOD.
+ENDCLASS.

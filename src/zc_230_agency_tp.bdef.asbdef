@@ -1,0 +1,18 @@
+projection;
+strict ( 2 );
+use draft;
+extensible;
+
+define behavior for zc_230_agency_tp alias agency
+extensible
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Resume;
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Prepare;
+}

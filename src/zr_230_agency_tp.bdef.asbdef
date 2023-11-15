@@ -1,0 +1,45 @@
+managed implementation in class zbp_r_230_agency_tp unique;
+strict ( 2 );
+with draft;
+extensible {
+  with determinations on modify;
+  with determinations on save;
+  with validations on save;
+  with additional save;
+}
+
+define behavior for zr_230_agency_tp alias agency
+persistent table z230_agency
+draft table z230_agency_d query zr_230_agency_draft
+lock master
+total etag last_changed_at
+authorization master ( global )
+etag master local_last_changed_at
+late numbering
+extensible
+{
+  create;
+  update;
+  delete;
+
+  field ( readonly ) agency_id;
+  field ( mandatory ) country_code, email_address, name;
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+
+  validation validate_email_address on save { create; field email_address; }
+  validation validate_country_code on save { create; field country_code; }
+  validation validate_name on save { create; field name; }
+
+  draft determine action Prepare extensible
+  {
+    validation validate_email_address;
+    validation validate_country_code;
+    validation validate_name;
+  }
+
+  mapping for z230_agency corresponding;
+}

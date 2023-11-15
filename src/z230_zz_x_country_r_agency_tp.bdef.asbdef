@@ -1,0 +1,15 @@
+extension using interface zi_230_agency_tp
+implementation in class zbp_230_zz_x_cntry_r_agencytp unique;
+
+extend behavior for agency
+{
+
+  validation zz_validate_dialling_code on save { field phone_number; }
+
+  determination zz_determine_country_code on modify { field phone_number; }
+
+  determination zz_determine_dialling_code on modify { field country_code; }
+
+  factory action ( authorization : global ) zz_create_from_template [1];
+
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: 'Z230_DMO_TRAVEL_C_A'
+@OData.schema.name: 'cds_y230_dmo_travel'
+define service Z230_DMO_TRAVEL_C_A {
+ expose ZY230C_DMO_TRAVEL; 
+ } 

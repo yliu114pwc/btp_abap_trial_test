@@ -1,8 +1,19 @@
 @EndUserText.label: 'agency'
 @AccessControl.authorizationCheck: #NOT_REQUIRED
+@AbapCatalog.extensibility: {
+  extensible: true,
+  dataSources: ['agency'],
+  elementSuffix: 'ZAG',
+  quota: {
+    maximumFields: 500,
+    maximumBytes: 5000
+  }, 
+  allowNewCompositions: true
+}
+@Metadata.allowExtensions: true
 define root view entity zc_230_agency_tp
   provider contract transactional_query
-  as projection on zr_230_agency
+  as projection on zr_230_agency_tp as agency
 {
   key agency_id,
       name,
@@ -22,7 +33,5 @@ define root view entity zc_230_agency_tp
       local_created_at,
       local_last_changed_by,
       local_last_changed_at,
-      last_changed_at,
-      dummy_field,
-      zz_slogan_zag
+      last_changed_at
 }

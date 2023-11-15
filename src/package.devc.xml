@@ -4,7 +4,8 @@
   <asx:values>
    <DEVC>
     <CTEXT>test</CTEXT>
-    <TPCLASS>X</TPCLASS>
+    <COMP_POSID>BC-ABA-LA</COMP_POSID>
+    <COMPONENT>HLB0100065</COMPONENT>
    </DEVC>
   </asx:values>
  </asx:abap>

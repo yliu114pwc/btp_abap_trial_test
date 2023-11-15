@@ -1,0 +1,4 @@
+@EndUserText.label: 'agency'
+define service zui_230_agency_tp {
+  expose zc_230_agency_tp as agency;
+}

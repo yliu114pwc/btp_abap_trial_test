@@ -8,9 +8,14 @@ CLASS zcl_230_dmo_travel_uq DEFINITION
     INTERFACES :
       if_rap_query_provider .
 
+protected section.
+private section.
 ENDCLASS.
 
-CLASS zcl_230_dmo_travel_uq IMPLEMENTATION.
+
+
+CLASS ZCL_230_DMO_TRAVEL_UQ IMPLEMENTATION.
+
 
   METHOD if_rap_query_provider~select.
 
@@ -49,5 +54,4 @@ CLASS zcl_230_dmo_travel_uq IMPLEMENTATION.
     ENDIF.
 
   ENDMETHOD.
-
 ENDCLASS.

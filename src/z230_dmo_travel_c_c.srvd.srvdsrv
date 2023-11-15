@@ -1,0 +1,4 @@
+@EndUserText.label: 'Travel'
+define service Z230_dmo_travel_c_c {
+  expose z230i_dmo_travel_c_c as travel;
+}
